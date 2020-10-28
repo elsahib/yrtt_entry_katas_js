@@ -23,6 +23,16 @@
 
 function rowWeights(array){
     // Your code here!
+    let odd =0,even=0;
+   
+    array.forEach((element,index) => {
+        if(index == 0 || index % 2 === 0){
+            even += element;
+        } else {
+            odd += element
+        }
+    })
+    return [even,odd]
 }
 
 module.exports = {
