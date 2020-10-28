@@ -8,6 +8,23 @@
 function singles(arr){
     if (arr === undefined) throw new Error("array is required");
     // Your code here!
+    let twice =[],single=[];
+    arr.sort(function(a, b){return b-a});
+    arr.forEach((item,i) => {
+       for (let j =i+1;j < arr.length;j++){
+        if (item == arr[j]) {
+          twice.push(item)
+        }
+      }
+    }); 
+    single = arr.filter(item=>{return twice.indexOf(item) == -1})
+     
+    if (single.length === 0){
+      return 0
+    } else {
+       return single.reduce((a, b) => a + b)
+    }
+   
 }
 
 module.exports = {
