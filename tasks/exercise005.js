@@ -18,11 +18,39 @@
 //  2.  If the character in the string is whitespace then pass over it as if it was an empty seat
 // Example
 // wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+const mexican = (str) =>{
+    let arr = []
+    for (let i =0 ; i <str.length;i++){
+        arr.push(str.replace(str[i],str[i].toUpperCase()))
+    }
+    return arr
+}
 
 function mexicanWave(str){
     // Your code here!
+    let result = []
+    if (str.length == 0){
+        return result
+    } else if (str.includes(" ")){
+        let index = str.indexOf(" ")
+        let first = str.substr(0,index)
+        let second = str.substr(index + 1)
+        for (let i =0 ; i <first.length;i++){
+            result.push(first.replace(first[i],first[i].toUpperCase()) +" "+ second)
+        }
+        for (let i =0 ; i <second.length;i++){
+            result.push(first +" " + second.replace(second[i],second[i].toUpperCase()))
+        }
+    } else {
+        for (let i =0 ; i <str.length;i++){
+            result.push(str.replace(str[i],str[i].toUpperCase()))
+        }
+    }
+
+    return result
 }
 
 module.exports = {
     mexicanWave
 };
+console.log(mexicanWave("hello"));
